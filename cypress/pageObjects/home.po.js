@@ -10,6 +10,8 @@ const dynamicLoading = 'a[href="/dynamic_loading"]';
 const forgotPassword = 'a[href="/forgot_password"]';
 const geolocation = 'a[href="/geolocation"]';
 const inputs = 'a[href="/inputs"]';
+const redirectors = 'a[href="/redirector"]';
+const dynamicContent = 'a[href="/dynamic_content"]';
 
 export function goToABTesting() {
     cy.get(abTestingLink).click();
@@ -57,4 +59,12 @@ export function goToGeoLocation() {
 
 export function goToInputs() {
     cy.get(inputs).click();
+}
+
+export function goToRedirectors() {
+    cy.get(redirectors).click();
+}
+
+export function goToDynamicContent() {
+    cy.get(dynamicContent).click();
 }
