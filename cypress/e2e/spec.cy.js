@@ -272,3 +272,32 @@ describe("the internet dynamic content", () => {
     });
 
 });
+
+describe("the internet geolocation", () => {
+    beforeEach(() => {
+        cy.clearCookies();
+        cy.visit("https://the-internet.herokuapp.com/");
+        homePage.goToGeoLocation();
+    });
+
+    it('where am i button is visible when loaded', () => {
+        geoLocationPage.whereAmIButtonIsVisible();
+    });
+});
+
+describe("the internet redirectors", () => {
+    beforeEach(() => {
+        cy.clearCookies();
+        cy.visit("https://the-internet.herokuapp.com/");
+        homePage.goToRedirectors();
+    });
+
+    it('page is loaded after navigating to', () => {
+        redirectorsPage.textFieldContainsText('This is separate from directly returning a redirection status code');
+    });
+    
+    it('redirect page is loaded when redirect link is clicked', () => {
+        redirectorsPage.clickRedirectLink();
+        cy.contains('HTTP status codes are a standard set of numbers used to communicate from a web server to your browser to indicate the outcome of the request being made');
+    });
+});
